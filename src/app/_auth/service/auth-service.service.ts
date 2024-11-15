@@ -26,15 +26,20 @@ export class AuthServiceService {
     }
   }
 
-  async register(form: any):Promise<ResponseAPIRegister> {
-    try{
+  async register(form: any): Promise<ResponseAPIRegister> {
+    try {
       const data = await firstValueFrom(this.http.post<ResponseAPIRegister>(`${this.baseUrl}/register`, form, this.crearHeaders()));
       return Promise.resolve(data);
-    } catch (error){
+    } catch (error) {
       console.log('Error en el servicio del registro [Auth Service]: ', error);
       let e = error as HttpErrorResponse;
-      this.errors.push(e.message || 'Error desconocido');
-      return Promise.reject(this.errors)
+      this.errors = [];  // Limpiar errores anteriores
+      if (e.error && e.error.message) {
+        this.errors.push(e.error.message);  // Mensaje de error desde el backend
+      } else {
+        this.errors.push(e.message || 'Error desconocido');
+      }
+      return Promise.reject(this.errors);
     }
   }
 

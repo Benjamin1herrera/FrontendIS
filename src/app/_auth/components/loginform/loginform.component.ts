@@ -16,7 +16,6 @@ import { LocalStorageService } from '../../../_shared/service/local-storage.serv
   providers: [AuthServiceService, LocalStorageService]
 })
 
-
 export class LoginformComponent {
   form!: FormGroup;
   loginAlert: boolean = false;

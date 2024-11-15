@@ -10,10 +10,7 @@
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
         placeholder="Ingrese su correo electrónico" name="email" />
 
-
-
         <small *ngIf="emailValidate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un correo válido.</small>
-
 
       </div>
 
@@ -25,9 +22,7 @@
         id="password" placeholder="Ingrese su contraseña"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
 
-
         <small *ngIf="passwordValidate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese una contraseña válida.</small>
-
 
       </div>
 
@@ -45,6 +40,6 @@
       class="text-white primarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-3">Iniciar sesión
     </button>
 
-    <a (click)="goToRegister()" class="secundarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registrarse</a>
+    <a (click)="goToRegister()" class="secundarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-red-600">Registrarse</a>
   </div>
 </form>

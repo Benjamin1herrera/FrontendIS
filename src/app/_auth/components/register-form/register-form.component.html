@@ -1,73 +1,81 @@
-<form class="max-w-sm mx-auto justify-items-center flex flex-col h-full" [formGroup]="form">
+<form class="max-w-sm mx-auto flex flex-col justify-items-center h-full" [formGroup]="form">
   <div class="flex-grow flex flex-col justify-center">
     <h1 class="text-3xl font-extrabold text-gray-900 tracking-widest text-center mb-5">Registro de usuario</h1>
     <hr class="w-48 h-1 mx-auto border-0 rounded mb-5">
 
-<!-- RUT -->
-<div class="mb-7">
-  <label for="rut" class="mb-2 text-sm font-medium text-gray-900">RUT</label>
-  <input [class.is-invalid]="rutValidate" name="rut" type="text" formControlName="rut" id="rut"
-    placeholder="Ingrese su RUT"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
-  <small *ngIf="rutValidate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un RUT válido.</small>
-</div>
+    <!-- RUT -->
+    <div class="mb-7">
+      <label for="rut" class="mb-2 text-sm font-medium text-gray-900">RUT</label>
+      <input [class.is-invalid]="rutValidate" name="rut" type="text" formControlName="rut" id="rut"
+        placeholder="Ingrese su RUT"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" 
+        [attr.aria-describedby]="rutValidate ? 'rut-error' : null" />
+      <small *ngIf="rutValidate" id="rut-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un RUT válido.</small>
+    </div>
 
-<!-- Nombre 1 -->
-<div class="mb-7">
-  <label for="nombre1" class="mb-2 text-sm font-medium text-gray-900">Primer Nombre</label>
-  <input [class.is-invalid]="nombre1Validate" name="nombre1" type="text" formControlName="nombre1" id="nombre1"
-    placeholder="Ingrese su primer nombre"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
-  <small *ngIf="nombre1Validate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un primer nombre válido.</small>
-</div>
+    <!-- Primer Nombre -->
+    <div class="mb-7">
+      <label for="nombre1" class="mb-2 text-sm font-medium text-gray-900">Primer Nombre</label>
+      <input [class.is-invalid]="nombre1Validate" name="nombre1" type="text" formControlName="nombre1" id="nombre1"
+        placeholder="Ingrese su primer nombre"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        [attr.aria-describedby]="nombre1Validate ? 'nombre1-error' : null" />
+      <small *ngIf="nombre1Validate" id="nombre1-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un primer nombre válido.</small>
+    </div>
 
-<!-- Apellido 1 -->
-<div class="mb-7">
-  <label for="apellido1" class="mb-2 text-sm font-medium text-gray-900">Primer Apellido</label>
-  <input [class.is-invalid]="apellido1Validate" name="apellido1" type="text" formControlName="apellido1" id="apellido1"
-    placeholder="Ingrese su primer apellido"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
-  <small *ngIf="apellido1Validate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un primer apellido válido.</small>
-</div>
+    <!-- Primer Apellido -->
+    <div class="mb-7">
+      <label for="apellido1" class="mb-2 text-sm font-medium text-gray-900">Primer Apellido</label>
+      <input [class.is-invalid]="apellido1Validate" name="apellido1" type="text" formControlName="apellido1" id="apellido1"
+        placeholder="Ingrese su primer apellido"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        [attr.aria-describedby]="apellido1Validate ? 'apellido1-error' : null" />
+      <small *ngIf="apellido1Validate" id="apellido1-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un primer apellido válido.</small>
+    </div>
 
-<!-- Apellido 2 -->
-<div class="mb-7">
-  <label for="apellido2" class="mb-2 text-sm font-medium text-gray-900">Segundo Apellido</label>
-  <input [class.is-invalid]="apellido2Validate" name="apellido2" type="text" formControlName="apellido2" id="apellido2"
-    placeholder="Ingrese su segundo apellido"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
-  <small *ngIf="apellido2Validate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un segundo apellido válido.</small>
-</div>
+    <!-- Segundo Apellido -->
+    <div class="mb-7">
+      <label for="apellido2" class="mb-2 text-sm font-medium text-gray-900">Segundo Apellido</label>
+      <input [class.is-invalid]="apellido2Validate" name="apellido2" type="text" formControlName="apellido2" id="apellido2"
+        placeholder="Ingrese su segundo apellido"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        [attr.aria-describedby]="apellido2Validate ? 'apellido2-error' : null" />
+      <small *ngIf="apellido2Validate" id="apellido2-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un segundo apellido válido.</small>
+    </div>
 
-<!-- Correo -->
-<div class="mb-5">
-  <label for="email" class="mb-2 text-sm font-medium text-gray-900">Correo</label>
-  <input [class.is-invalid]="emailValidate" type="email" id="email" formControlName="email"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-    placeholder="Ingrese su correo electrónico" name="email" />
-  <small *ngIf="emailValidate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un correo válido.</small>
-</div>
+    <!-- Correo -->
+    <div class="mb-5">
+      <label for="email" class="mb-2 text-sm font-medium text-gray-900">Correo</label>
+      <input [class.is-invalid]="emailValidate" type="email" id="email" formControlName="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        placeholder="Ingrese su correo electrónico" name="email" 
+        [attr.aria-describedby]="emailValidate ? 'email-error' : null" />
+      <small *ngIf="emailValidate" id="email-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un correo válido.</small>
+    </div>
 
-<!-- Teléfono -->
-<div class="mb-7">
-  <label for="telefono" class="mb-2 text-sm font-medium text-gray-900">Teléfono</label>
-  <input [class.is-invalid]="telefonoValidate" name="telefono" type="text" formControlName="telefono" id="telefono"
-    placeholder="Ingrese su teléfono"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5" />
-  <small *ngIf="telefonoValidate" style="font-size:x-small;" class="text-red-500 font-medium">Ingrese un teléfono válido.</small>
-</div>
+    <!-- Teléfono -->
+    <div class="mb-7">
+      <label for="telefono" class="mb-2 text-sm font-medium text-gray-900">Teléfono</label>
+      <input [class.is-invalid]="telefonoValidate" name="telefono" type="text" formControlName="telefono" id="telefono"
+        placeholder="Ingrese su teléfono"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        [attr.aria-describedby]="telefonoValidate ? 'telefono-error' : null" />
+      <small *ngIf="telefonoValidate" id="telefono-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un teléfono válido.</small>
+    </div>
 
-<!-- Errores -->
-<div *ngFor="let error of errorMessage" class="bg-red-500 rounded-lg mb-5 flex justify-center">
-  <a *ngIf="error" class="text-white text-sm font-medium m-5">
-    {{ error }}
-  </a>
-</div>
+    <!-- Errores Generales -->
+    <div *ngFor="let error of errorMessage" class="bg-red-500 rounded-lg mb-5 flex justify-center">
+      <a *ngIf="error" class="text-white text-sm font-medium m-5">
+        {{ error }}
+      </a>
+    </div>
 
-<!-- Botones -->
-<button type="button" (click)="register()"
-  class="text-white primarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-3">Registrar
-</button>
+    <!-- Botones -->
+    <button type="button" (click)="register()"
+      class="text-white primarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-3">Registrar
+    </button>
 
-<a (click)="goToLogin()"
-  class="secundarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Iniciar Sesión</a>
+    <a (click)="goToLogin()"
+      class="secundarybutton font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center cursor-pointer">Iniciar Sesión</a>
+  </div>
+</form>
