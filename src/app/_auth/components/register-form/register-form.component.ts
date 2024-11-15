@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
   templateUrl: './register-form.component.html',
-  styleUrl: './register-form.component.css',
+  styleUrls: ['./register-form.component.css'],
   providers: [AuthServiceService]
 })
 export class RegisterFormComponent {
@@ -21,16 +21,18 @@ export class RegisterFormComponent {
 
   private authService = inject(AuthServiceService);
 
-  constructor(private fb: FormBuilder, private Router: Router) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.formulario();
   }
 
   formulario() {
     this.form = this.fb.group({
+      rut: ['', [Validators.required]],
+      nombre1: ['', [Validators.required]],
+      apellido1: ['', [Validators.required]],
+      apellido2: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      role: ['', [Validators.required]]
+      telefono: ['', [Validators.required]]
     });
   }
 
@@ -42,12 +44,24 @@ export class RegisterFormComponent {
     return this.form.get('password')?.invalid && this.form.get('password')?.touched;
   }
 
-  get nameValidate() {
-    return this.form.get('name')?.invalid && this.form.get('name')?.touched;
+  get nombre1Validate() {
+    return this.form.get('nombre1')?.invalid && this.form.get('nombre1')?.touched;
   }
 
-  get roleValidate() {
-    return this.form.get('role')?.invalid && this.form.get('role')?.touched;
+  get apellido1Validate() {
+    return this.form.get('apellido1')?.invalid && this.form.get('apellido1')?.touched;
+  }
+
+  get apellido2Validate() {
+    return this.form.get('apellido2')?.invalid && this.form.get('apellido2')?.touched;
+  }
+
+  get rutValidate() {
+    return this.form.get('rut')?.invalid && this.form.get('rut')?.touched;
+  }
+
+  get telefonoValidate() {
+    return this.form.get('telefono')?.invalid && this.form.get('telefono')?.touched;
   }
 
   async register() {
@@ -63,9 +77,8 @@ export class RegisterFormComponent {
     try {
       const response = await this.authService.register(this.form.value);
 
-      if (response.error === false){
-
-        this.Router.navigate(['/login']);
+      if (!response.error){
+        this.router.navigate(['/login']);
       } else{
         console.log('Error en el componente del register [Register Form]: ', response);
         this.error = true;
@@ -79,6 +92,6 @@ export class RegisterFormComponent {
   }
 
   goToLogin() {
-    this.Router.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 }
