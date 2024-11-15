@@ -63,6 +63,17 @@
       <small *ngIf="telefonoValidate" id="telefono-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un teléfono válido.</small>
     </div>
 
+    <!-- Rol -->
+    <div class="mb-7">
+      <label for="role" class="mb-2 text-sm font-medium text-gray-900">Role</label>
+      <input [class.is-invalid]="roleValidate" name="role" type="text" formControlName="role" id="role"
+        placeholder="Ingrese su role"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        [attr.aria-describedby]="telefonoValidate ? 'role-error' : null" />
+      <small *ngIf="roleValidate" id="role-error" role="alert" class="text-red-500 font-medium text-xs">Ingrese un rol válido.</small>
+    </div>
+    
+
     <!-- Errores Generales -->
     <div *ngFor="let error of errorMessage" class="bg-red-500 rounded-lg mb-5 flex justify-center">
       <a *ngIf="error" class="text-white text-sm font-medium m-5">
