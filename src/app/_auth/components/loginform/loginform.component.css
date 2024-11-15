@@ -3,42 +3,43 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #EF233C;
+  background-color: #96BBBB;
   overflow: hidden;
 }
 
 .form{
   width: auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: #51ff4b;
   border-radius: 12px;
 }
 
 hr{
-  background-color: #D90429;
+  background-color: #618985;
   height: 5px;
 }
 
 .primarybutton{
-  background-color: #EF233C;
+  background-color: #F2E3BC;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .primarybutton:hover{
-  background-color: #a2001b;
+  background-color: #7c7564;
 
 }
 
 .secundarybutton{
   border: 2px solid;
-  border-color: #EF233C;
+  border-color: #F2E3BC;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: #414535;
 }
 
 .secundarybutton:hover{
-  background-color: #a2001b;
+  background-color: #7c7564;
   color: #fff;
 }
 
